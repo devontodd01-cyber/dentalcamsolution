@@ -164,11 +164,15 @@
 
   /* RIBBON BADGE */
   .ribbon-badge {
-    width: 320px;
-    max-width: 90%;
-    margin: 0 auto 28px;
-    filter: drop-shadow(0 4px 28px rgba(201,168,76,0.3));
-    cursor: default;
+    width: 300px;
+    max-width: 85%;
+    margin: 32px auto 0;
+    filter: drop-shadow(0 4px 24px rgba(201,168,76,0.3));
+  }
+  .ribbon-badge svg {
+    width: 100%;
+    height: auto;
+    display: block;
   }
   .ribbon-badge svg {
     width: 100%;
@@ -285,9 +289,17 @@
       <a class="btn-ghost" href="#tools">Shop Milling Tools</a>
       <a class="btn-ghost" href="#contact">Get a Demo</a>
     </div>
-    <!-- RIBBON BADGE -->
-    <div class="ribbon-badge">
-      <svg viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num">V5</div><div class="stat-label">Latest DS CAM</div></div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat"><div class="stat-num">60</div><div class="stat-label">Day Trial Kit</div></div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat"><div class="stat-num">CA</div><div class="stat-label">Canadian Distributor</div></div>
+    </div>
+
+    <!-- RIBBON BADGE: after stats, no overlap -->
+    <div style="width:300px;max-width:88%;margin:32px auto 0;filter:drop-shadow(0 4px 24px rgba(201,168,76,0.3));">
+      <svg viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
         <polygon points="14,6 206,6 220,40 206,74 14,74 0,40" fill="#c9a84c"/>
         <polygon points="20,13 200,13 212,40 200,67 20,67 8,40" fill="none" stroke="#8B6914" stroke-width="1.2"/>
         <text x="13" y="45" font-family="Arial" font-size="12" fill="#8B6914">&#9668;</text>
@@ -298,13 +310,6 @@
       </svg>
     </div>
 
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="stat-num">V5</div><div class="stat-label">Latest DS CAM</div></div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat"><div class="stat-num">60</div><div class="stat-label">Day Trial Kit</div></div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat"><div class="stat-num">CA</div><div class="stat-label">Canadian Distributor</div></div>
-    </div>
   </div>
   <div class="hero-fade-bottom"></div>
 
