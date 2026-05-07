@@ -175,6 +175,23 @@
     height: auto;
     display: block;
   }
+  @media (max-width: 900px) {
+    .ribbon-badge {
+      width: 260px;
+      margin: 0 auto 20px;
+    }
+  }
+  @media (max-width: 480px) {
+    .ribbon-badge {
+      order: 10;
+      margin: 20px auto 0;
+      width: 240px;
+    }
+    .hero-center {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
   /* ANIMATIONS */
   @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -258,6 +275,16 @@
       </svg>
     </div>
 
+
+    <div class="hero-divider"></div>
+    <div class="hero-eyebrow">Canadian Distributor &nbsp;·&nbsp; DS CAM Software &nbsp;·&nbsp; Calgary, Canada</div>
+    <h1 class="hero-h1">Precision Milling, <em>Perfectly Managed.</em></h1>
+    <p class="hero-sub">Canada's dedicated source for DS CAM software and professional-grade milling tools. Engineered for dental labs and practices that demand speed, accuracy, and unmatched value.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#software">Explore DS CAM</a>
+      <a class="btn-ghost" href="#tools">Shop Milling Tools</a>
+      <a class="btn-ghost" href="#contact">Get a Demo</a>
+    </div>
     <!-- RIBBON BADGE -->
     <div class="ribbon-badge">
       <svg viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,15 +298,6 @@
       </svg>
     </div>
 
-    <div class="hero-divider"></div>
-    <div class="hero-eyebrow">Canadian Distributor &nbsp;·&nbsp; DS CAM Software &nbsp;·&nbsp; Calgary, Canada</div>
-    <h1 class="hero-h1">Precision Milling, <em>Perfectly Managed.</em></h1>
-    <p class="hero-sub">Canada's dedicated source for DS CAM software and professional-grade milling tools. Engineered for dental labs and practices that demand speed, accuracy, and unmatched value.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="#software">Explore DS CAM</a>
-      <a class="btn-ghost" href="#tools">Shop Milling Tools</a>
-      <a class="btn-ghost" href="#contact">Get a Demo</a>
-    </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="stat-num">V5</div><div class="stat-label">Latest DS CAM</div></div>
       <div class="hero-stat-divider"></div>
