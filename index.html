@@ -20,8 +20,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--navy-dark); color: var(--white); font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.02em; overflow-x: hidden; }
-
-  /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 76px; background: rgba(17,24,39,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
   .nav-logo { text-decoration: none; display: flex; align-items: center; }
   .nav-logo svg { height: 46px; width: auto; }
@@ -30,8 +28,6 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-cta { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-dark); background: var(--gold); padding: 11px 26px; text-decoration: none; transition: background 0.3s; }
   .nav-cta:hover { background: var(--gold-light); }
-
-  /* BUTTONS */
   .btn-primary { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy-dark); background: var(--gold); border: none; padding: 16px 34px; cursor: pointer; text-decoration: none; transition: background 0.3s; display: inline-block; }
   .btn-primary:hover { background: var(--gold-light); }
   .btn-ghost { font-size: 0.68rem; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--border); padding: 16px 34px; cursor: pointer; text-decoration: none; transition: border-color 0.3s, color 0.3s; display: inline-block; }
@@ -51,14 +47,17 @@
   .hero-h1 em { font-style: italic; color: var(--gold); }
   .hero-sub { font-size: 0.92rem; font-weight: 300; line-height: 1.9; color: var(--grey); max-width: 580px; margin-bottom: 44px; }
   .hero-actions { display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
-  .hero-stats { display: flex; align-items: center; gap: 40px; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; justify-content: center; }
+  .hero-stats { display: flex; align-items: center; gap: 40px; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; justify-content: center; margin-bottom: 40px; }
   .hero-stat { text-align: center; }
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 6px; }
   .stat-label { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey); }
   .hero-stat-divider { width: 1px; height: 36px; background: var(--border); }
   .hero-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, var(--navy-dark)); pointer-events: none; }
 
-  /* INTRO STRIP */
+  /* RIBBON — normal flow, centered, below stats, no absolute */
+  .ribbon-badge { width: 280px; max-width: 85%; margin: 0 auto; filter: drop-shadow(0 4px 24px rgba(201,168,76,0.3)); }
+  .ribbon-badge svg { width: 100%; height: auto; display: block; }
+
   .intro-strip { background: var(--navy); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .intro-strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); }
   .intro-item { padding: 52px 48px; border-right: 1px solid var(--border); }
@@ -66,38 +65,28 @@
   .intro-item .ico { width: 34px; height: 34px; margin-bottom: 20px; color: var(--gold); }
   .intro-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--white); margin-bottom: 10px; }
   .intro-item p { font-size: 0.82rem; line-height: 1.82; color: var(--grey); }
-
-  /* SHARED TYPOGRAPHY */
   .section-eyebrow { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; }
   .section-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.2rem, 3.5vw, 3.8rem); line-height: 1.12; color: var(--white); margin-bottom: 20px; }
   .section-title em { font-style: italic; color: var(--gold); }
   .section-sub { font-size: 0.88rem; font-weight: 300; line-height: 1.9; color: var(--grey); }
-
-  /* VIDEOS ROW */
   .videos-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border-dim); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); width: 100%; }
   .video-col { background: var(--navy); display: flex; flex-direction: column; overflow: hidden; }
   .video-col-title { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: var(--navy-mid); border-bottom: 1px solid var(--border); min-height: 72px; }
   .video-col .video-num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--gold); opacity: 0.6; flex-shrink: 0; line-height: 1.2; }
   .video-col .video-name { font-size: 0.6rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); line-height: 1.6; }
   .video-col video { width: 100%; display: block; background: #0a0f1a; flex: 1; aspect-ratio: 16/10; }
-
-  /* SOFTWARE THREE-COL — clean, no section padding conflicts */
   .sw-wrap { width: 100%; border-bottom: 1px solid var(--border); }
   .sw-three { display: grid; grid-template-columns: 1fr 1fr 1fr; width: 100%; }
   .sw-col-heading { padding: 72px 60px; border-right: 1px solid var(--border); background: var(--navy-dark); }
   .sw-col-features { padding: 72px 60px; border-right: 1px solid var(--border); background: var(--navy-dark); }
   .sw-col-pricing { padding: 72px 60px; background: var(--navy); }
-
-  /* FEATURES */
   .feature-row { padding: 22px 0; border-bottom: 1px solid var(--border-dim); display: flex; gap: 20px; align-items: flex-start; }
   .feature-row:first-child { border-top: 1px solid var(--border-dim); }
   .feature-num { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 300; color: var(--border); min-width: 36px; line-height: 1; }
   .feature-text h4 { font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); margin-bottom: 5px; }
   .feature-text p { font-size: 0.8rem; color: var(--grey); line-height: 1.72; }
   .feature-highlight { background: linear-gradient(90deg, rgba(201,168,76,0.06) 0%, transparent 100%); border-left: 2px solid var(--gold) !important; padding-left: 16px !important; margin-left: -16px; }
-
-  /* TOOLS */
   #tools { padding: 120px 80px; background: var(--navy); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .tools-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
   .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-dim); border: 1px solid var(--border-dim); }
@@ -109,15 +98,11 @@
   .tool-card p { font-size: 0.8rem; line-height: 1.75; color: var(--grey); }
   .tool-arrow { margin-top: auto; font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 10px; }
   .tool-arrow::after { content: '→'; font-size: 0.9rem; }
-
-  /* BRANDS */
   .brands { padding: 56px 80px; background: var(--navy-dark); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 56px; flex-wrap: wrap; }
   .brands-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #3a4a60; white-space: nowrap; flex-shrink: 0; }
   .brands-divider { width: 1px; height: 36px; background: var(--border-dim); flex-shrink: 0; }
   .brand-names { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
   .brand-name { font-size: 0.82rem; font-weight: 200; letter-spacing: 0.22em; text-transform: uppercase; color: #2e3d55; }
-
-  /* WHY */
   #why { padding: 120px 80px; background: var(--navy); border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
   .why-visual { position: relative; height: 460px; display: flex; align-items: center; justify-content: center; }
   .why-box { width: 280px; height: 280px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; background: var(--navy-dark); }
@@ -133,8 +118,6 @@
   .why-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-top: 7px; flex-shrink: 0; }
   .why-item h4 { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 7px; }
   .why-item p { font-size: 0.82rem; line-height: 1.82; color: var(--grey); }
-
-  /* CONTACT */
   #contact { padding: 120px 80px; background: var(--navy-dark); border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
   .contact-form { display: flex; flex-direction: column; gap: 16px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -148,49 +131,25 @@
   .contact-detail h4 { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
   .contact-detail p, .contact-detail a { font-size: 0.85rem; line-height: 1.8; color: var(--grey); text-decoration: none; }
   .contact-detail a:hover { color: var(--gold); }
-
-  /* FOOTER */
   footer { background: var(--navy); border-top: 1px solid var(--border); padding: 44px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
   .footer-copy { font-size: 0.66rem; color: #2e3d55; letter-spacing: 0.1em; }
   .footer-links { display: flex; gap: 28px; }
   .footer-links a { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: #2e3d55; text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--gold); }
-
-  /* TOAST */
   .toast { position: fixed; bottom: 32px; right: 32px; z-index: 999; background: var(--navy-mid); border: 1px solid var(--gold); padding: 18px 28px; display: flex; align-items: center; gap: 14px; transform: translateY(100px); opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease; pointer-events: none; }
   .toast.show { transform: translateY(0); opacity: 1; }
   .toast-icon { color: var(--gold); font-size: 1.1rem; }
   .toast-text { font-size: 0.8rem; color: var(--white); }
-
-  /* RIBBON BADGE */
-  .ribbon-badge {
-    position: absolute;
-    top: 50%;
-    right: 80px;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 300px;
-    filter: drop-shadow(0 4px 28px rgba(201,168,76,0.3));
-    cursor: default;
-  }
-  .ribbon-badge svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  .ribbon-glow { display: none; }
-
-  /* ANIMATIONS */
   @keyframes draw { to { stroke-dashoffset: 0; } }
   .tp1 { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: draw 5s ease 0.6s forwards; }
   .tp2 { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: draw 5s ease 0.75s forwards; }
   @keyframes fadein { from {opacity:0} to {opacity:1} }
   .tplate { animation: fadein 0.4s ease 5.2s both; }
-
-  /* MOBILE */
   @media (max-width: 900px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
+    .hero-center { padding: 40px 24px 60px; }
+    .ribbon-badge { width: 240px; }
     .intro-strip-inner { grid-template-columns: 1fr; }
     .intro-item { border-right: none; border-bottom: 1px solid var(--border); }
     .videos-row { grid-template-columns: 1fr 1fr; }
@@ -209,10 +168,9 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">
-    <svg height="46" viewBox="0 0 340 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg height="46" viewBox="0 0 340 90" fill="none">
       <polyline class="tp1" points="35,4 66,35 35,66 4,35 35,4 35,11 59,35 35,59 11,35 35,11 35,18 52,35 35,52 18,35 35,18 35,25 45,35 35,45 25,35 35,25 35,31 39,35 35,39 31,35 35,35" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       <polyline class="tp2" points="35,8 62,35 35,62 8,35 35,8 35,15 55,35 35,55 15,35 35,15 35,22 48,35 35,48 22,35 35,22 35,28 42,35 35,42 28,35 35,28 35,33 37,35 35,37 33,35 35,35" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.4"/>
       <circle cx="35" cy="4" r="2.2" fill="none" stroke="#c9a84c" stroke-width="1" class="tplate"/>
@@ -234,7 +192,6 @@
   <a class="nav-cta" href="#contact">Get a Demo</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg-anim">
     <svg class="hero-svg-bg" viewBox="0 0 900 600" fill="none" preserveAspectRatio="xMidYMid slice">
@@ -277,34 +234,22 @@
       <div class="hero-stat-divider"></div>
       <div class="hero-stat"><div class="stat-num">CA</div><div class="stat-label">Canadian Distributor</div></div>
     </div>
+    <!-- RIBBON: in normal document flow, always below stats, never overlaps -->
+    <div class="ribbon-badge">
+      <svg viewBox="0 0 220 80" fill="none">
+        <polygon points="14,6 206,6 220,40 206,74 14,74 0,40" fill="#c9a84c"/>
+        <polygon points="20,13 200,13 212,40 200,67 20,67 8,40" fill="none" stroke="#8B6914" stroke-width="1.2"/>
+        <text x="13" y="45" font-family="Arial" font-size="12" fill="#8B6914">&#9668;</text>
+        <text x="190" y="45" font-family="Arial" font-size="12" fill="#8B6914">&#9658;</text>
+        <text x="110" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2" fill="#1a1608">OVERSIZED MILLING</text>
+        <text x="110" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#1a1608">with Ivotion</text>
+        <text x="110" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" letter-spacing="1.5" fill="#3d2e0a">EXCLUSIVE WORKFLOW</text>
+      </svg>
+    </div>
   </div>
   <div class="hero-fade-bottom"></div>
-
-  <!-- ── OVERSIZED MILLING RIBBON BADGE ── -->
-  <div class="ribbon-badge">
-    <svg viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- outer ribbon shape -->
-      <polygon points="14,6 206,6 220,40 206,74 14,74 0,40" fill="#c9a84c"/>
-      <!-- inner border -->
-      <polygon points="20,13 200,13 212,40 200,67 20,67 8,40" fill="none" stroke="#8B6914" stroke-width="1.2"/>
-      <!-- left arrow accent -->
-      <text x="13" y="45" font-family="Arial" font-size="12" fill="#8B6914">◀</text>
-      <!-- right arrow accent -->
-      <text x="190" y="45" font-family="Arial" font-size="12" fill="#8B6914">▶</text>
-      <!-- top line: OVERSIZED MILLING -->
-      <text x="110" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2" fill="#1a1608">OVERSIZED MILLING</text>
-      <!-- middle line: with Ivotion italic -->
-      <text x="110" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#1a1608">with Ivotion</text>
-      <!-- bottom line: EXCLUSIVE WORKFLOW -->
-      <text x="110" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" letter-spacing="1.5" fill="#3d2e0a">EXCLUSIVE WORKFLOW</text>
-    </svg>
-    <!-- subtle pulsing glow ring -->
-    <div class="ribbon-glow"></div>
-  </div>
-
 </section>
 
-<!-- INTRO STRIP -->
 <div class="intro-strip">
   <div class="intro-strip-inner">
     <div class="intro-item">
@@ -325,41 +270,22 @@
   </div>
 </div>
 
-<!-- VIDEOS full width -->
 <div class="videos-row">
-  <div class="video-col">
-    <div class="video-col-title"><span class="video-num">01</span><span class="video-name">Denture Workflow<br>DS CAM V5</span></div>
-    <video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/01_Denture_Workflow_CAM5.mp4" type="video/mp4"></video>
-  </div>
-  <div class="video-col">
-    <div class="video-col-title"><span class="video-num">02</span><span class="video-name">Denture Workflow<br>ExoCAD + Calc</span></div>
-    <video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/02_Denture_Workflow_ExoCAD_incl_calculation.mp4" type="video/mp4"></video>
-  </div>
-  <div class="video-col">
-    <div class="video-col-title"><span class="video-num">03</span><span class="video-name">Semi-Auto Workflow<br>ExoCAD</span></div>
-    <video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/03_Quick_Semi_Auto_Workflow_ExoCAD.mp4" type="video/mp4"></video>
-  </div>
-  <div class="video-col">
-    <div class="video-col-title"><span class="video-num">04</span><span class="video-name">Auto Workflow<br>DS CAM V5</span></div>
-    <video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/04_Auto_Workflow_CAM5.mp4" type="video/mp4"></video>
-  </div>
-  <div class="video-col">
-    <div class="video-col-title"><span class="video-num">05</span><span class="video-name">Auto Workflow<br>ExoCAD</span></div>
-    <video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/05_Auto_Workflow_ExoCAD.mp4" type="video/mp4"></video>
-  </div>
+  <div class="video-col"><div class="video-col-title"><span class="video-num">01</span><span class="video-name">Denture Workflow<br>DS CAM V5</span></div><video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/01_Denture_Workflow_CAM5.mp4" type="video/mp4"></video></div>
+  <div class="video-col"><div class="video-col-title"><span class="video-num">02</span><span class="video-name">Denture Workflow<br>ExoCAD + Calc</span></div><video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/02_Denture_Workflow_ExoCAD_incl_calculation.mp4" type="video/mp4"></video></div>
+  <div class="video-col"><div class="video-col-title"><span class="video-num">03</span><span class="video-name">Semi-Auto Workflow<br>ExoCAD</span></div><video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/03_Quick_Semi_Auto_Workflow_ExoCAD.mp4" type="video/mp4"></video></div>
+  <div class="video-col"><div class="video-col-title"><span class="video-num">04</span><span class="video-name">Auto Workflow<br>DS CAM V5</span></div><video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/04_Auto_Workflow_CAM5.mp4" type="video/mp4"></video></div>
+  <div class="video-col"><div class="video-col-title"><span class="video-num">05</span><span class="video-name">Auto Workflow<br>ExoCAD</span></div><video controls preload="metadata"><source src="https://file.dental-softworks.com/videos/05_Auto_Workflow_ExoCAD.mp4" type="video/mp4"></video></div>
 </div>
 
-<!-- SOFTWARE — three equal columns, no section tag, no padding conflicts -->
 <div id="software" class="sw-wrap">
   <div class="sw-three">
-
     <div class="sw-col-heading">
       <div class="section-eyebrow">DS CAM Software</div>
       <h2 class="section-title">The <em>fastest</em> CAM engine in dental.</h2>
       <p class="section-sub">DS CAM V5 sets the industry benchmark for calculation speed — without premium pricing. As your Canadian distributor, we handle licensing, setup, and ongoing support.</p>
       <a href="https://www.dental-softworks.com/en/videos" target="_blank" style="display:inline-block; margin-top:32px; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); text-decoration:none;">View all DS CAM videos →</a>
     </div>
-
     <div class="sw-col-features">
       <div class="feature-row"><div class="feature-num">01</div><div class="feature-text"><h4>Unmatched Calculation Speed</h4><p>DS CAM's toolpath engine remains the fastest available — dramatically cutting milling prep time per case.</p></div></div>
       <div class="feature-row"><div class="feature-num">02</div><div class="feature-text"><h4>Autonesting Advance</h4><p>Intelligent nesting maximizes blank yield and reduces material waste across every restoration type.</p></div></div>
@@ -367,7 +293,6 @@
       <div class="feature-row"><div class="feature-num">04</div><div class="feature-text"><h4>60-Day Trial Kit</h4><p>Try DS CAM V5 with our starter kit — 10 precision burs and a dongle shipped to your lab. $675 CAD credited toward your licence.</p></div></div>
       <div class="feature-row feature-highlight"><div class="feature-num" style="color:var(--gold);">★</div><div class="feature-text"><h4 style="color:var(--gold);">Oversized Milling Workflow</h4><p>Our exclusive two-step Ivotion process — tooth arch and base milled separately from different discs, bonded, then finish-milled for a seamless, high-precision complete denture. A capability most labs don't offer.</p></div></div>
     </div>
-
     <div class="sw-col-pricing">
       <div class="section-eyebrow" style="margin-bottom:14px;">Licensing</div>
       <h3 style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:2.2rem; color:var(--white); line-height:1.2; margin-bottom:16px;">Simple, <em style="font-style:italic; color:var(--gold);">transparent</em> pricing.</h3>
@@ -381,11 +306,9 @@
       <a class="btn-ghost" href="#contact" style="display:block; text-align:center; margin-bottom:20px;">Request Trial Kit — $675 CAD</a>
       <p style="font-size:0.6rem; letter-spacing:0.14em; color:#3a4a60; text-transform:uppercase; text-align:center; line-height:1.9;">Canadian billing · No maintenance fees<br>Dongle shipped to you</p>
     </div>
-
   </div>
 </div>
 
-<!-- TOOLS -->
 <section id="tools">
   <div class="tools-header">
     <div>
@@ -396,16 +319,15 @@
     <a class="btn-ghost" href="https://www.asdentaltool.com/" target="_blank" style="white-space:nowrap; align-self:flex-end;">Shop All Tools →</a>
   </div>
   <div class="tools-grid">
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-2-0mm-ball-carbide" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="2" x2="12" y2="22"/><ellipse cx="12" cy="20" rx="4" ry="2"/></svg></div><h3>Roland 2.0mm Ball — Carbide</h3><div class="tool-price">From $49.45 CAD</div><p>Standard carbide ball-end bur for Roland DWX series. Ideal for zirconia and PMMA rough milling passes.</p><div class="tool-arrow">Shop Now</div></a>
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-1-0mm-ball-carbide" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="2" x2="12" y2="22"/><ellipse cx="12" cy="20" rx="2.5" ry="1.5"/></svg></div><h3>Roland 1.0mm Ball — Carbide</h3><div class="tool-price">From $49.45 CAD</div><p>Fine detail carbide bur for anatomy finishing and tight interproximal margins on Roland DWX mills.</p><div class="tool-arrow">Shop Now</div></a>
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-1-0mm-diamond-coated-ball-end-tool-dwx-dry-mills" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Roland 1.0mm Ball Long — DLC</h3><div class="tool-price">From $75.00 CAD</div><p>Diamond-like carbon coated for sintered zirconia and composite. Extended reach for deep cavity prep.</p><div class="tool-arrow">Shop Now</div></a>
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/t14-t41-t51-1-0-6-0mm-diamond-coated-zr-sint-comp" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>imes T14/T41/T51 1.0mm — DLC</h3><div class="tool-price">From $75.00 CAD</div><p>DLC-coated bur for imes-icore platforms. Engineered for sintered zirconia and composite materials.</p><div class="tool-arrow">Shop Now</div></a>
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/t13-t40-t50-2-5-60mm-diamond-coated-zr-sint-comp" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="2" x2="12" y2="22"/><ellipse cx="12" cy="20" rx="4" ry="2"/></svg></div><h3>imes T13/T40/T50 2.5mm — DLC</h3><div class="tool-price">From $75.00 CAD</div><p>Heavy-duty DLC roughing bur for imes-icore. Maximizes material removal while extending tool life.</p><div class="tool-arrow">Shop Now</div></a>
-    <a class="tool-card" href="https://www.asdentaltool.com/category/all-products" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><h3>Full Tool Catalogue</h3><div class="tool-price">All Machines & Materials</div><p>Browse the complete AS Dental Tool range — Roland, imes-icore, carbide, DLC, and specialty coatings.</p><div class="tool-arrow">View All</div></a>
+    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-2-0mm-ball-carbide" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="2" x2="12" y2="22"/><ellipse cx="12" cy="20" rx="4" ry="2"/></svg></div><h3>Roland 2.0mm Ball — Carbide</h3><div class="tool-price">From $49.45 CAD</div><p>Standard carbide ball-end bur for Roland DWX series.</p><div class="tool-arrow">Shop Now</div></a>
+    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-1-0mm-ball-carbide" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="2" x2="12" y2="22"/><ellipse cx="12" cy="20" rx="2.5" ry="1.5"/></svg></div><h3>Roland 1.0mm Ball — Carbide</h3><div class="tool-price">From $49.45 CAD</div><p>Fine detail carbide bur for anatomy finishing on Roland DWX mills.</p><div class="tool-arrow">Shop Now</div></a>
+    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-1-0mm-diamond-coated-ball-end-tool-dwx-dry-mills" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Roland 1.0mm Ball Long — DLC</h3><div class="tool-price">From $75.00 CAD</div><p>Diamond-like carbon coated for sintered zirconia and composite.</p><div class="tool-arrow">Shop Now</div></a>
+    <a class="tool-card" href="https://www.asdentaltool.com/product-page/t14-t41-t51-1-0-6-0mm-diamond-coated-zr-sint-comp" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>imes T14/T41/T51 1.0mm — DLC</h3><div class="tool-price">From $75.00 CAD</div><p>DLC-coated bur for imes-icore platforms.</p><div class="tool-arrow">Shop Now</div></a>
+    <a class="tool-card" href="https://www.asdentaltool.com/product-page/t13-t40-t50-2-5-60mm-diamond-coated-zr-sint-comp" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="12" y1="2" x2="12" y2="22"/><ellipse cx="12" cy="20" rx="4" ry="2"/></svg></div><h3>imes T13/T40/T50 2.5mm — DLC</h3><div class="tool-price">From $75.00 CAD</div><p>Heavy-duty DLC roughing bur for imes-icore.</p><div class="tool-arrow">Shop Now</div></a>
+    <a class="tool-card" href="https://www.asdentaltool.com/category/all-products" target="_blank"><div class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><h3>Full Tool Catalogue</h3><div class="tool-price">All Machines & Materials</div><p>Browse the complete AS Dental Tool range.</p><div class="tool-arrow">View All</div></a>
   </div>
 </section>
 
-<!-- BRANDS -->
 <div class="brands">
   <div class="brands-label">Compatible with</div>
   <div class="brands-divider"></div>
@@ -420,7 +342,6 @@
   </div>
 </div>
 
-<!-- WHY US -->
 <section id="why">
   <div class="why-visual">
     <div class="why-box"><div class="big-num">CA</div><div class="big-label">Canadian<br>Distributor</div></div>
@@ -440,7 +361,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div>
     <div class="section-eyebrow">Get in Touch</div>
@@ -477,7 +397,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <svg height="38" viewBox="0 0 260 70" fill="none">
     <polyline points="25,3 47,25 25,47 3,25 25,3 25,9 41,25 25,41 9,25 25,9 25,15 35,25 25,35 15,25 25,15 25,21 29,25 25,29 21,25 25,25" stroke="#c9a84c" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.8"/>
