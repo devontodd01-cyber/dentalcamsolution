@@ -162,22 +162,15 @@
   .toast-icon { color: var(--gold); font-size: 1.1rem; }
   .toast-text { font-size: 0.8rem; color: var(--white); }
 
+
   /* RIBBON BADGE */
   .ribbon-badge {
-    position: absolute;
-    top: 50%;
-    right: 80px;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 300px;
-    filter: drop-shadow(0 4px 28px rgba(201,168,76,0.3));
-    cursor: default;
+    display: inline-block;
+    width: 240px;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 4px 18px rgba(201,168,76,0.3));
   }
-  .ribbon-badge svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  .ribbon-badge svg { width: 100%; height: auto; display: block; }
   .ribbon-glow { display: none; }
 
   /* ANIMATIONS */
@@ -244,6 +237,18 @@
       <a class="btn-ghost" href="#tools">Shop Milling Tools</a>
       <a class="btn-ghost" href="#contact">Get a Demo</a>
     </div>
+    <div class="ribbon-badge">
+      <svg viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="14,6 206,6 220,40 206,74 14,74 0,40" fill="#c9a84c"/>
+        <polygon points="20,13 200,13 212,40 200,67 20,67 8,40" fill="none" stroke="#8B6914" stroke-width="1.2"/>
+        <text x="13" y="45" font-family="Arial" font-size="12" fill="#8B6914">◀</text>
+        <text x="190" y="45" font-family="Arial" font-size="12" fill="#8B6914">▶</text>
+        <text x="110" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2" fill="#1a1608">OVERSIZED MILLING</text>
+        <text x="110" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#1a1608">with Ivotion</text>
+        <text x="110" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" letter-spacing="1.5" fill="#3d2e0a">EXCLUSIVE WORKFLOW</text>
+      </svg>
+      <div class="ribbon-glow"></div>
+    </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="stat-num">V5</div><div class="stat-label">Latest DS CAM</div></div>
       <div class="hero-stat-divider"></div>
@@ -253,28 +258,7 @@
     </div>
   </div>
   <div class="hero-fade-bottom"></div>
-
-  <!-- ── OVERSIZED MILLING RIBBON BADGE ── -->
-  <div class="ribbon-badge">
-    <svg viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- outer ribbon shape -->
-      <polygon points="14,6 206,6 220,40 206,74 14,74 0,40" fill="#c9a84c"/>
-      <!-- inner border -->
-      <polygon points="20,13 200,13 212,40 200,67 20,67 8,40" fill="none" stroke="#8B6914" stroke-width="1.2"/>
-      <!-- left arrow accent -->
-      <text x="13" y="45" font-family="Arial" font-size="12" fill="#8B6914">◀</text>
-      <!-- right arrow accent -->
-      <text x="190" y="45" font-family="Arial" font-size="12" fill="#8B6914">▶</text>
-      <!-- top line: OVERSIZED MILLING -->
-      <text x="110" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2" fill="#1a1608">OVERSIZED MILLING</text>
-      <!-- middle line: with Ivotion italic -->
-      <text x="110" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#1a1608">with Ivotion</text>
-      <!-- bottom line: EXCLUSIVE WORKFLOW -->
-      <text x="110" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" letter-spacing="1.5" fill="#3d2e0a">EXCLUSIVE WORKFLOW</text>
-    </svg>
-    <!-- subtle pulsing glow ring -->
-    <div class="ribbon-glow"></div>
-  </div>
+</div>
 
 </section>
 
