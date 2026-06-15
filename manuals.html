@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milling Tools | Dental CAM Solution</title>
+<title>Manuals | Dental CAM Solution</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -24,69 +24,60 @@
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; height: 76px; background: rgba(17,24,39,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
   .nav-logo { text-decoration: none; display: flex; align-items: center; }
-  .nav-logo img { height: 46px; width: auto; }
+  .nav-logo img { height: 52px; width: auto; }
   .nav-links { display: flex; gap: 44px; list-style: none; }
   .nav-links a { font-size: 0.7rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.3s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-cta { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy-dark); background: var(--gold); padding: 11px 26px; text-decoration: none; transition: background 0.3s; }
   .nav-cta:hover { background: var(--gold-light); }
 
-  /* TOOLS SECTION */
-  .tools-wrap { padding: 120px 80px 100px; }
-  .tools-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 52px; }
-  .tools-header-left h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.4rem, 4vw, 4rem); line-height: 1.1; color: var(--white); }
-  .tools-header-left h1 em { font-style: italic; color: var(--gold); display: block; }
-  .tools-header-left p { font-size: 0.84rem; line-height: 1.85; color: var(--grey); max-width: 600px; margin-top: 16px; }
-  .shop-all-link { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid var(--border); padding: 14px 22px; white-space: nowrap; transition: border-color 0.3s; flex-shrink: 0; margin-top: 8px; }
-  .shop-all-link:hover { border-color: var(--gold); }
+  /* HAMBURGER */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--gold); }
+  .mobile-menu { display: none; position: fixed; top: 76px; left: 0; right: 0; background: rgba(17,24,39,0.98); border-bottom: 1px solid var(--border); z-index: 199; flex-direction: column; padding: 24px 32px; gap: 0; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 0.7rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); text-decoration: none; padding: 16px 0; border-bottom: 1px solid var(--border-dim); transition: color 0.3s; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a.active, .mobile-menu a:hover { color: var(--gold); }
 
-  /* GRID */
-  .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-dim); border: 1px solid var(--border-dim); }
-  .tool-card { background: var(--navy-dark); padding: 40px 36px; display: flex; flex-direction: column; gap: 14px; transition: background 0.3s; text-decoration: none; color: inherit; }
-  .tool-card:hover { background: var(--navy-mid); }
-  .tool-card.catalogue { background: var(--navy); }
-  .tool-card.catalogue:hover { background: var(--navy-mid); }
+  /* PAGE HEADER */
+  .page-header { padding-top: 76px; background: var(--navy-dark); border-bottom: 1px solid var(--border); }
+  .page-header-inner { padding: 72px 80px 60px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .section-eyebrow { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: flex; align-items: center; gap: 14px; }
+  .section-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.4rem, 4vw, 4rem); line-height: 1.1; color: var(--white); }
+  .page-title em { font-style: italic; color: var(--gold); }
+  .page-sub { font-size: 0.84rem; line-height: 1.85; color: var(--grey); max-width: 400px; text-align: right; }
 
-  /* ICON */
-  .tool-icon { width: 44px; height: 44px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 6px; flex-shrink: 0; }
-
-  .tool-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--white); line-height: 1.25; }
-  .tool-price { font-size: 0.68rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase; }
-  .tool-card p { font-size: 0.8rem; line-height: 1.78; color: var(--grey); flex: 1; }
-  .tool-link { font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 10px; margin-top: auto; transition: gap 0.3s; }
-  .tool-card:hover .tool-link { gap: 16px; }
+  /* CHAPTERS GRID */
+  .chapters-wrap { padding: 60px 80px 100px; }
+  .chapters-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-dim); border: 1px solid var(--border-dim); }
+  .chapter-card { background: var(--navy-dark); padding: 36px 34px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: background 0.3s; }
+  .chapter-card:hover { background: var(--navy-mid); }
+  .chapter-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--border); line-height: 1; }
+  .chapter-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--white); line-height: 1.3; }
+  .chapter-card h3 em { font-style: italic; color: var(--gold); display: block; font-size: 0.9rem; }
+  .chapter-card p { font-size: 0.78rem; line-height: 1.78; color: var(--grey); flex: 1; }
+  .chapter-link { font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: auto; display: flex; align-items: center; gap: 8px; transition: gap 0.3s; }
+  .chapter-card:hover .chapter-link { gap: 14px; }
 
   /* FOOTER */
   footer { background: var(--navy); border-top: 1px solid var(--border); padding: 44px 80px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
   .footer-copy { font-size: 0.66rem; color: #2e3d55; letter-spacing: 0.1em; }
-  .footer-links { display: flex; gap: 28px; }
+  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
   .footer-links a { font-size: 0.66rem; letter-spacing: 0.15em; text-transform: uppercase; color: #2e3d55; text-decoration: none; transition: color 0.3s; }
   .footer-links a:hover { color: var(--gold); }
 
   @media (max-width: 900px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .tools-wrap { padding: 100px 24px 60px; }
-    .tools-header { flex-direction: column; gap: 24px; }
-    .tools-grid { grid-template-columns: 1fr; }
+    .hamburger { display: flex; }
+    .page-header-inner { padding: 60px 24px 40px; flex-direction: column; gap: 20px; align-items: flex-start; }
+    .page-sub { text-align: left; }
+    .chapters-wrap { padding: 40px 24px 60px; }
+    .chapters-grid { grid-template-columns: 1fr; }
     footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
   }
-
-  /* HAMBURGER */
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--gold); transition: all 0.3s; }
-  .mobile-menu { display: none; position: fixed; top: 76px; left: 0; right: 0; background: rgba(17,24,39,0.98); border-bottom: 1px solid var(--border); z-index: 199; flex-direction: column; padding: 24px 32px; gap: 0; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-size: 0.7rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); text-decoration: none; padding: 16px 0; border-bottom: 1px solid var(--border-dim); transition: color 0.3s; }
-  .mobile-menu a:hover, .mobile-menu a.active { color: var(--gold); }
-  .mobile-menu a:last-child { border-bottom: none; }
-
-  @media (max-width: 900px) {
-    .hamburger { display: flex; }
-    .footer-links { flex-wrap: wrap; gap: 16px; }
-    .footer-links a { font-size: 0.62rem; }
-  }
-
 </style>
 </head>
 <body>
@@ -98,8 +89,8 @@
   <ul class="nav-links">
     <li><a href="software.html">DS CAM Software</a></li>
     <li><a href="videos.html">Videos</a></li>
-    <li><a href="tooling.html" class="active">Milling Tools</a></li>
-    <li><a href="manuals.html">Manuals</a></li>
+    <li><a href="tooling.html">Milling Tools</a></li>
+    <li><a href="manuals.html" class="active">Manuals</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -112,87 +103,107 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="software.html">DS CAM Software</a>
   <a href="videos.html">Videos</a>
-  <a href="tooling.html" class="active">Milling Tools</a>
-  <a href="manuals.html">Manuals</a>
+  <a href="tooling.html">Milling Tools</a>
+  <a href="manuals.html" class="active">Manuals</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="tools-wrap">
-  <div class="tools-header">
-    <div class="tools-header-left">
-      <h1>Tools built for<br><em>every material.</em></h1>
-      <p>Precision carbide and DLC-coated burs for Roland DWX and imes-icore machines. Sourced through AS Dental Tool — our trusted tooling partner.</p>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <div class="section-eyebrow">DS CAM V5.4</div>
+      <h1 class="page-title">User <em>Manual</em></h1>
     </div>
-    <a class="shop-all-link" href="https://www.asdentaltool.com/category/all-products" target="_blank">Shop All Tools →</a>
+    <p class="page-sub">Complete documentation for DS CAM V5.4. Select a chapter below to open the full manual on the Dental Softworks website.</p>
   </div>
+</div>
 
-  <div class="tools-grid">
+<section class="chapters-wrap">
+  <div class="chapters-grid">
 
-    <!-- Roland 2.0mm Ball Carbide -->
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-2-0mm-ball-carbide" target="_blank">
-      <div class="tool-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="10" y1="2" x2="10" y2="18"/><circle cx="10" cy="6" r="3"/></svg>
-      </div>
-      <h3>Roland 2.0mm Ball — Carbide</h3>
-      <div class="tool-price">From $49.45 CAD</div>
-      <p>Standard carbide ball-end bur for Roland DWX series. Ideal for zirconia and PMMA rough milling passes.</p>
-      <span class="tool-link">Shop Now →</span>
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/01_schnellstart.html" target="_blank">
+      <div class="chapter-num">01</div>
+      <h3>Quick Start <em>Schnellstart</em></h3>
+      <p>From import to NC file in 7 steps — the complete workflow at a glance. Initial setup, job import, disc creation, nesting, calculation and NC output.</p>
+      <span class="chapter-link">Open Chapter →</span>
     </a>
 
-    <!-- Roland 1.0mm Ball Carbide -->
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-1-0mm-ball-carbide" target="_blank">
-      <div class="tool-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="10" y1="2" x2="10" y2="18"/><circle cx="10" cy="6" r="3"/></svg>
-      </div>
-      <h3>Roland 1.0mm Ball — Carbide</h3>
-      <div class="tool-price">From $49.45 CAD</div>
-      <p>Fine detail carbide bur for anatomy finishing and tight interproximal margins on Roland DWX mills.</p>
-      <span class="tool-link">Shop Now →</span>
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/02_oberflaeche.html" target="_blank">
+      <div class="chapter-num">02</div>
+      <h3>User Interface <em>Oberfläche</em></h3>
+      <p>Header, navigation, toolbar, workspace and 3D view — the complete user interface explained in detail including operating conventions.</p>
+      <span class="chapter-link">Open Chapter →</span>
     </a>
 
-    <!-- Roland 1.0mm Ball Long DLC -->
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/roland-1-0mm-ball-long-dlc" target="_blank">
-      <div class="tool-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="10,2 14,8 10,18 6,8"/></svg>
-      </div>
-      <h3>Roland 1.0mm Ball Long — DLC</h3>
-      <div class="tool-price">From $75.00 CAD</div>
-      <p>Diamond-like carbon coated for sintered zirconia and composite. Extended reach for deep cavity prep.</p>
-      <span class="tool-link">Shop Now →</span>
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/03_jobs.html" target="_blank">
+      <div class="chapter-num">03</div>
+      <h3>Jobs <em>Jobs</em></h3>
+      <p>Import jobs, work preparation, import formats and auto-import. Machine and material selection, object types, strategies, alignment and auto nesting.</p>
+      <span class="chapter-link">Open Chapter →</span>
     </a>
 
-    <!-- imes T14/T41/T51 1.0mm DLC -->
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/t14-t41-t51-1-0-6-0mm-diamond-coated-zr-sint-comp" target="_blank">
-      <div class="tool-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="10,2 14,8 10,18 6,8"/></svg>
-      </div>
-      <h3>imes T14/T41/T51 1.0mm — DLC</h3>
-      <div class="tool-price">From $75.00 CAD</div>
-      <p>DLC-coated bur for imes-icore platforms. Engineered for sintered zirconia and composite materials.</p>
-      <span class="tool-link">Shop Now →</span>
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/04_ronden_halter.html" target="_blank">
+      <div class="chapter-num">04</div>
+      <h3>Discs & Holders <em>Ronden & Halter</em></h3>
+      <p>Create and manage discs and block holders. Multi-colour discs, editing, archiving and the browser interface for material management.</p>
+      <span class="chapter-link">Open Chapter →</span>
     </a>
 
-    <!-- imes T13/T40/T50 2.5mm DLC -->
-    <a class="tool-card" href="https://www.asdentaltool.com/product-page/t13-t40-t50-2-5-60mm-diamond-coated-zr-sint-comp" target="_blank">
-      <div class="tool-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="10" y1="2" x2="10" y2="18"/><circle cx="10" cy="6" r="3"/></svg>
-      </div>
-      <h3>imes T13/T40/T50 2.5mm — DLC</h3>
-      <div class="tool-price">From $75.00 CAD</div>
-      <p>Heavy-duty DLC roughing bur for imes-icore. Maximizes material removal while extending tool life.</p>
-      <span class="tool-link">Shop Now →</span>
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/05_nesting_berechnung.html" target="_blank">
+      <div class="chapter-num">05</div>
+      <h3>Nesting & Calculation <em>Nesting & Berechnung</em></h3>
+      <p>Place jobs, set holding pins, milling groups, auto-nesting and collision check. Workflow optimization, shared milling areas and NC output order.</p>
+      <span class="chapter-link">Open Chapter →</span>
     </a>
 
-    <!-- Full Tool Catalogue -->
-    <a class="tool-card catalogue" href="https://www.asdentaltool.com/category/all-products" target="_blank">
-      <div class="tool-icon">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="10" cy="10" r="8"/><line x1="10" y1="6" x2="10" y2="14"/><line x1="6" y1="10" x2="14" y2="10"/></svg>
-      </div>
-      <h3>Full Tool Catalogue</h3>
-      <div class="tool-price">All Machines &amp; Materials</div>
-      <p>Browse the complete AS Dental Tool range — Roland, imes-icore, carbide, DLC, and specialty coatings.</p>
-      <span class="tool-link">View All →</span>
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/06_simulation_nc.html" target="_blank">
+      <div class="chapter-num">06</div>
+      <h3>Simulation & NC <em>Simulation & NC</em></h3>
+      <p>Milling path simulation, material removal simulation, display modes, changing calculation parameters and the posting / NC file creation dialog.</p>
+      <span class="chapter-link">Open Chapter →</span>
+    </a>
+
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/07_strategien.html" target="_blank">
+      <div class="chapter-num">07</div>
+      <h3>Milling Strategies <em>Frässtrategien</em></h3>
+      <p>Strategy sets, configure milling steps, OEM and custom strategies, favorites and job type assignment. 3-axis vs. 5-axis configuration.</p>
+      <span class="chapter-link">Open Chapter →</span>
+    </a>
+
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/08_werkzeuge.html" target="_blank">
+      <div class="chapter-num">08</div>
+      <h3>Tools <em>Werkzeuge</em></h3>
+      <p>Create milling tools, geometry and cutting data tabs, effective diameter, tool types and how tools interact with milling strategies.</p>
+      <span class="chapter-link">Open Chapter →</span>
+    </a>
+
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/09_maschinen.html" target="_blank">
+      <div class="chapter-num">09</div>
+      <h3>Machines <em>Maschinen</em></h3>
+      <p>Create and configure machines, connection settings, axis settings and service areas. Machine overview and management for your milling units.</p>
+      <span class="chapter-link">Open Chapter →</span>
+    </a>
+
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/10_system_einstellungen.html" target="_blank">
+      <div class="chapter-num">10</div>
+      <h3>System <em>System</em></h3>
+      <p>System requirements, installation, starting and exiting, login and users, software updates, licensing and user and system settings.</p>
+      <span class="chapter-link">Open Chapter →</span>
+    </a>
+
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/11_troubleshooting.html" target="_blank">
+      <div class="chapter-num">11</div>
+      <h3>Troubleshooting <em>Troubleshooting</em></h3>
+      <p>Common issues, faulty projects, import problems, curve and nesting issues, calculation and NC output errors, display issues and support contact.</p>
+      <span class="chapter-link">Open Chapter →</span>
+    </a>
+
+    <a class="chapter-card" href="https://file.dental-softworks.com/manual/" target="_blank">
+      <div class="chapter-num">↗</div>
+      <h3>Full Manual <em>Complete Reference</em></h3>
+      <p>Open the complete DS CAM V5.4 user manual on the Dental Softworks website for the full interactive documentation experience.</p>
+      <span class="chapter-link">Open Full Manual →</span>
     </a>
 
   </div>
@@ -215,5 +226,6 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   });
 </script>
+
 </body>
 </html>
