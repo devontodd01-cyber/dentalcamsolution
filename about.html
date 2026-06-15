@@ -68,9 +68,37 @@
     nav { padding: 0 20px; }
     .nav-links { display: none; }
     .why-wrap { grid-template-columns: 1fr; }
-    .why-visual { min-height: 320px; border-right: none; border-bottom: 1px solid var(--border); }
-    .why-content { padding: 60px 24px; }
+    .why-visual { 
+      min-height: unset; 
+      border-right: none; 
+      border-bottom: 1px solid var(--border); 
+      padding: 0;
+      display: flex; 
+      flex-direction: row; 
+      position: static;
+    }
+    .stat-box { 
+      position: static !important; 
+      transform: none !important; 
+      width: auto !important; 
+      height: auto !important; 
+      top: unset !important; 
+      left: unset !important; 
+      bottom: unset !important; 
+      right: unset !important; 
+      flex: 1; 
+      padding: 28px 12px; 
+      border: none;
+      border-right: 1px solid var(--border);
+      border-radius: 0;
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-box .box-num { font-size: 2.2rem; }
+    .stat-box.box-b .box-num { font-size: 2.2rem; }
+    .stat-box .box-label { font-size: 0.52rem; }
+    .why-content { padding: 52px 24px; }
     footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
   }
 
   /* HAMBURGER */
