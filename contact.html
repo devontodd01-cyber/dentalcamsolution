@@ -254,7 +254,7 @@
 
       if (!res.ok) throw new Error('Request failed: ' + res.status);
 
-      toastText.textContent = '✓  Message sent — we\\'ll be in touch soon.';
+      toastText.textContent = "✓  Message sent — we'll be in touch soon.";
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 4000);
       this.reset();
