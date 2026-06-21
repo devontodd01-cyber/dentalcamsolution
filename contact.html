@@ -212,39 +212,60 @@
 </footer>
 
 <div class="toast" id="toast">
-  <span class="toast-text">✓ &nbsp;Opening your email app to send this to us…</span>
+  <span class="toast-text">✓ &nbsp;Message sent — we'll be in touch soon.</span>
 </div>
 
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  const SUPABASE_URL = 'https://znwkudeiwsagsjthiaht.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpud2t1ZGVpd3NhZ3NqdGhpYWh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4MjI0ODksImV4cCI6MjA5NzM5ODQ4OX0.PqJD2xjc506q_J8wqk-zo8cvmt3xGPVB5rjXfh9Kcyo';
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const firstName = document.getElementById('first-name').value.trim();
-    const lastName = document.getElementById('last-name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const labName = document.getElementById('lab-name').value.trim();
-    const interest = document.getElementById('interest').value;
-    const message = document.getElementById('message').value.trim();
+    const submitBtn = this.querySelector('.btn-submit');
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
 
-    const subject = encodeURIComponent('Website Inquiry — ' + (interest || 'General Inquiry'));
-
-    const bodyLines = [
-      'Name: ' + firstName + ' ' + lastName,
-      'Email: ' + email,
-      'Practice / Lab Name: ' + (labName || '—'),
-      'Interested In: ' + (interest || '—'),
-      '',
-      'Message:',
-      message || '—'
-    ];
-    const body = encodeURIComponent(bodyLines.join('\n'));
-
-    window.location.href = 'mailto:info@dentalcamsolution.ca?subject=' + subject + '&body=' + body;
+    const payload = {
+      first_name: document.getElementById('first-name').value.trim(),
+      last_name: document.getElementById('last-name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      lab_name: document.getElementById('lab-name').value.trim() || null,
+      interest: document.getElementById('interest').value || null,
+      message: document.getElementById('message').value.trim() || null,
+      source: 'website'
+    };
 
     const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 4000);
-    this.reset();
+    const toastText = toast.querySelector('.toast-text');
+
+    try {
+      const res = await fetch(SUPABASE_URL + '/rest/v1/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
+
+      toastText.textContent = '✓  Message sent — we\\'ll be in touch soon.';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+      this.reset();
+    } catch (err) {
+      toastText.textContent = 'Something went wrong — please email info@dentalcamsolution.ca directly.';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 5000);
+    } finally {
+      submitBtn.textContent = originalLabel;
+      submitBtn.disabled = false;
+    }
   });
 </script>
 
